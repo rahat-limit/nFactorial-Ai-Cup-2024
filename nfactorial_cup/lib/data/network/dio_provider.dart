@@ -38,7 +38,7 @@ class DioProvider {
 
     if (type == UrlType.gpt) {
       dio.options.headers['Authorization'] =
-          'Bearer sk-proj-Znf1v7pHmafzekSQu3mgT3BlbkFJWHY2cJ4Cgflgus5Q3LA6';
+          'Bearer sk-proj-XfY0KSbvzGxorPccAETjT3BlbkFJ7o75eE8xA4GtiwzAlJ6D';
     }
 
     dio.interceptors.add(InterceptorsWrapper(

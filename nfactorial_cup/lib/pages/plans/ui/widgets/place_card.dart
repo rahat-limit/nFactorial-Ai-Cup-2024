@@ -3,6 +3,7 @@ import 'package:nfactorial_cup/helpers/app_colors.dart';
 import 'package:nfactorial_cup/helpers/app_fonts.dart';
 import 'package:nfactorial_cup/pages/main/entity/model/yandex_place_model.dart';
 import 'package:nfactorial_cup/pages/plans/presentors/plans_cubit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PlaceCard extends StatelessWidget {
   final Feature feature;
@@ -83,7 +84,13 @@ class PlaceCard extends StatelessWidget {
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         backgroundColor: secondaryBgColor),
-                    onPressed: () {},
+                    onPressed: () async {
+                      final Uri url = Uri.parse(
+                          'https://yandex.kz/maps/org/${feature.properties?.companyMetaData?.id ?? ''}/');
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                      }
+                    },
                     child: Text('View',
                         style: AppFonts.w600s14.copyWith(color: bg))),
                 right: 10,
