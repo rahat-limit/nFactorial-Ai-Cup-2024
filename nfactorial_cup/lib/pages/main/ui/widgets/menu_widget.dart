@@ -101,7 +101,9 @@ class MenuWidget extends StatelessWidget {
             ],
           );
         default:
-          return const SizedBox();
+          return Center(
+              child: Text('Place is unselected',
+                  style: AppFonts.w700s20.copyWith(color: AppColors.grey)));
       }
     });
   }

@@ -59,12 +59,11 @@ Future<void> moveToCurrentLocation(
     animation: const MapAnimation(type: MapAnimationType.linear, duration: 1),
     CameraUpdate.newCameraPosition(
       CameraPosition(
-        target: Point(
-          latitude: appLatLong.lat,
-          longitude: appLatLong.long,
-        ),
-        zoom: 8,
-      ),
+          target: Point(
+            latitude: appLatLong.lat,
+            longitude: appLatLong.long,
+          ),
+          zoom: 12),
     ),
   );
 }

@@ -21,7 +21,7 @@ class _ChooseTourismTypeState extends State<ChooseTourismType> {
       Expanded(
           child: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Hello Sofia👋', style: AppFonts.w400s16.copyWith(fontSize: 19)),
+          Text('Hello👋', style: AppFonts.w400s16.copyWith(fontSize: 19)),
           Text('What type(s) of vacation do you like?',
               style: AppFonts.w800s32.copyWith(fontSize: 42)),
           const SizedBox(height: 40),

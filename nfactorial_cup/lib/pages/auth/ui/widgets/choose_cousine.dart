@@ -38,8 +38,7 @@ class _ChooseCousineState extends State<ChooseCousine> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-            Text('Hello Sofia👋',
-                style: AppFonts.w400s16.copyWith(fontSize: 19)),
+            Text('Hello👋', style: AppFonts.w400s16.copyWith(fontSize: 19)),
             Text('Which one do you prefer?',
                 style: AppFonts.w800s32.copyWith(fontSize: 42)),
             const SizedBox(height: 40),

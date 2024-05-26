@@ -108,7 +108,6 @@ class _MainMapState extends State<MainMap> {
                     });
                   }),
                   //  _getPlacemarkObjects(context),
-
                   onMapCreated: (controller) {
                     widget.mapControllerCompleter.complete(controller);
                   });

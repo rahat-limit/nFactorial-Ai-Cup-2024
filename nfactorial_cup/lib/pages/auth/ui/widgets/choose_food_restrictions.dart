@@ -44,8 +44,7 @@ class _ChooseFoodRestrictionsState extends State<ChooseFoodRestrictions> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-            Text('Hello Sofia👋',
-                style: AppFonts.w400s16.copyWith(fontSize: 19)),
+            Text('Hello👋', style: AppFonts.w400s16.copyWith(fontSize: 19)),
             Text('Any allergies or food restrictions?',
                 style: AppFonts.w800s32.copyWith(fontSize: 42)),
             const SizedBox(height: 40),
