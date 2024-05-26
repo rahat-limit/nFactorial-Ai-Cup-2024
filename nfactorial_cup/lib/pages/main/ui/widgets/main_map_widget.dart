@@ -85,7 +85,6 @@ class _MainMapState extends State<MainMap> {
                     long: e.geometry!.coordinates.first))
                 .toList();
           }
-
           // if (state.locations?.response?.geoObjectCollection?.featureMember !=
           //     null) {
           //   coordinates = state

@@ -20,7 +20,7 @@ class DioProvider {
         rootUrl =
             'https://geocode-maps.yandex.ru/1.x?apikey=89f5ec56-4fe3-4613-961c-5538a3d4fd19';
       case UrlType.scraper:
-        rootUrl = 'http://localhost:9000/';
+        rootUrl = 'https://yonder-parser.onrender.com/';
       default:
     }
     BaseOptions options = BaseOptions(
