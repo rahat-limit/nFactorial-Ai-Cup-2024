@@ -22,8 +22,11 @@ class AppRouter extends _$AppRouter {
           page: CollectDataRoute.page,
         ),
         AutoRoute(initial: true, page: NavigationRoute.page, children: [
-          AutoRoute(page: PlansListRoute.page),
-          AutoRoute(page: MainRoute.page, initial: true),
+          AutoRoute(page: PlansListRoute.page, initial: true),
+          AutoRoute(
+            page: MainRoute.page,
+            // initial: true
+          ),
           AutoRoute(page: ProfileRoute.page)
         ])
       ];

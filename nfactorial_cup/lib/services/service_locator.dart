@@ -40,8 +40,9 @@ void initServiceLocator() {
   sl.registerLazySingleton<PostApi>(() => PostApi(sl()));
 
   sl.registerLazySingleton<ProfileApi>(() => ProfileApi(dio: sl()));
-  sl.registerLazySingleton<PlacesApi>(
-      () => PlacesApi(dio: DioProvider(type: UrlType.geocode).get()));
+  sl.registerLazySingleton<PlacesApi>(() => PlacesApi(
+      dio: DioProvider(type: UrlType.geocode).get(),
+      placesDio: DioProvider(type: UrlType.places).get()));
   sl.registerLazySingleton<PlansApi>(() => PlansApi(
       scraperApi: DioProvider(type: UrlType.scraper).get(),
       dio: DioProvider(type: UrlType.gpt).get()));
@@ -55,6 +56,6 @@ void initServiceLocator() {
       () => ProfileRepositoryImpl(sl()));
   sl.registerLazySingleton<MainMapRepository>(
       () => MainMapRepositoryImpl(api: sl(), gptApi: sl()));
-  sl.registerLazySingleton<PlansRepository>(
-      () => PlanRepositoryImpl(plansApi: sl(), tokenStorage: sl()));
+  sl.registerLazySingleton<PlansRepository>(() =>
+      PlanRepositoryImpl(placesApi: sl(), plansApi: sl(), tokenStorage: sl()));
 }

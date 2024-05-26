@@ -28,25 +28,28 @@ class _MainPageState extends State<MainPage> {
   late double _panelHeightOpen;
   double _percentage = 0;
   void sendMessage() {
-    moveToCurrentLocation(const AppLatLong(lat: 50.976731, long: 71.553625),
+    moveToCurrentLocation(const AppLatLong(lat: 55.755864, long: 37.617698),
         mapControllerCompleter);
   }
 
-  @override
-  void initState() {
-    super.initState();
-    PlansCubit.read(context).getMenuPreferencesInfo(135993469025);
-    // MainMapCubit.read(context).displayPlacesOnMap();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    List<String> restrs =
-        ProfileCubit.watchState(context).preferences.foodRestrictions;
+  //   // MainMapCubit.read(context).displayPlacesOnMap();
+  // }
 
-    PlansCubit.read(context).defineMenuRestrictions(foodRestriction: restrs);
-  }
+  // @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+  //   // ----- Get menu from from scrapper
+  //   // PlansCubit.read(context).getMenuPreferencesInfo(135993469025);
+  //   // ----- Get food restrictions
+  //   // List<String> restrs =
+  //   //     ProfileCubit.watchState(context).preferences.foodRestrictions;
+  //   // ----- Define restrictions from menu using gpt
+  //   // PlansCubit.read(context).defineMenuRestrictions(foodRestriction: restrs);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,16 +61,16 @@ class _MainPageState extends State<MainPage> {
             left: 0,
             top: 0,
             child: MainMap(mapControllerCompleter: mapControllerCompleter)),
-        Positioned(
-            top: 10,
-            left: 0,
-            child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [LocationModal()],
-                ))),
+        // Positioned(
+        //     top: 10,
+        //     left: 0,
+        //     child: SizedBox(
+        //         width: MediaQuery.of(context).size.width,
+        //         height: 100,
+        //         child: const Row(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           children: [LocationModal()],
+        //         ))),
         SlidingUpPanel(
             onPanelSlide: _slidePosition, //add this line
             maxHeight: _panelHeightOpen,

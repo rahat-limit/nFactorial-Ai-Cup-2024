@@ -15,10 +15,10 @@ class DioProvider {
         rootUrl = 'https://api.openai.com/v1/';
       case UrlType.places:
         rootUrl =
-            'https://search-maps.yandex.ru/v1?apiKey=5398dc3e-d906-4ca3-8282-aefe7ebca5d6&lang=enRU';
+            'https://search-maps.yandex.ru/v1/?apikey=7b90f117-de53-4643-afad-5efa08a0193a&lang=en_US';
       case UrlType.geocode:
         rootUrl =
-            'https://geocode-maps.yandex.ru/1.x?apikey=65d475c0-1fff-4905-a241-0b46e0865044';
+            'https://geocode-maps.yandex.ru/1.x?apikey=89f5ec56-4fe3-4613-961c-5538a3d4fd19';
       case UrlType.scraper:
         rootUrl = 'http://localhost:9000/';
       default:

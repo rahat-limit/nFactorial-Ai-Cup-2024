@@ -10,10 +10,12 @@ class CurrentLocation {
 }
 
 class AppLatLong {
+  final String id;
   final double lat;
   final double long;
 
   const AppLatLong({
+    this.id = '',
     required this.lat,
     required this.long,
   });
@@ -22,8 +24,10 @@ class AppLatLong {
 Future<void> initPermission(
     Completer<YandexMapController> mapControllerCompleter,
     {Function(AppLatLong)? saveToCurrentLocation}) async {
-  if (!await PlanRepositoryImpl(plansApi: null).checkPermission()) {
-    await PlanRepositoryImpl(plansApi: null).requestPermission();
+  if (!await PlanRepositoryImpl(plansApi: null, placesApi: null)
+      .checkPermission()) {
+    await PlanRepositoryImpl(plansApi: null, placesApi: null)
+        .requestPermission();
   }
   await fetchCurrentLocation(mapControllerCompleter,
       saveToCurrentLocation: saveToCurrentLocation);
@@ -33,10 +37,11 @@ Future<void> fetchCurrentLocation(
     Completer<YandexMapController> mapControllerCompleter,
     {Function(AppLatLong)? saveToCurrentLocation}) async {
   AppLatLong location;
-  // 51.163069, 71.408489
-  const defLocation = AppLatLong(lat: 51.163069, long: 71.408489);
+  // ,
+  const defLocation = AppLatLong(lat: 55.755864, long: 37.617698);
   try {
-    location = await PlanRepositoryImpl(plansApi: null).getCurrentLocation();
+    location = await PlanRepositoryImpl(plansApi: null, placesApi: null)
+        .getCurrentLocation();
     if (saveToCurrentLocation != null) {
       saveToCurrentLocation(location);
     }
@@ -58,7 +63,7 @@ Future<void> moveToCurrentLocation(
           latitude: appLatLong.lat,
           longitude: appLatLong.long,
         ),
-        zoom: 12,
+        zoom: 8,
       ),
     ),
   );

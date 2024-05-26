@@ -53,15 +53,15 @@ class MenuWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: MediaQuery.of(context).size.width / 3.8,
-                          width: MediaQuery.of(context).size.width / 3.8,
-                          decoration: BoxDecoration(
-                            color: AppColors.secondary,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
+                        // Container(
+                        //   height: MediaQuery.of(context).size.width / 3.8,
+                        //   width: MediaQuery.of(context).size.width / 3.8,
+                        //   decoration: BoxDecoration(
+                        //     color: AppColors.secondary,
+                        //     borderRadius: BorderRadius.circular(10),
+                        //   ),
+                        // ),
+                        // const SizedBox(width: 10),
                         Expanded(
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

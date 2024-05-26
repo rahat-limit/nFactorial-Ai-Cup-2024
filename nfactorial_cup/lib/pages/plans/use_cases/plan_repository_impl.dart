@@ -4,6 +4,8 @@ import 'package:nfactorial_cup/data/local_db/context_storage.dart';
 import 'package:nfactorial_cup/data/local_db/token_storage.dart';
 import 'package:nfactorial_cup/helpers/app_conts.dart';
 import 'package:nfactorial_cup/helpers/app_location.dart';
+import 'package:nfactorial_cup/pages/main/entity/api/places_api.dart';
+import 'package:nfactorial_cup/pages/main/entity/model/yandex_place_model.dart';
 import 'package:nfactorial_cup/pages/plans/entity/api/plans_api.dart';
 import 'package:nfactorial_cup/pages/plans/entity/model/menu_item_model.dart';
 import 'package:nfactorial_cup/pages/plans/use_cases/plans_repository.dart';
@@ -11,14 +13,11 @@ import 'package:dio/dio.dart';
 
 class PlanRepositoryImpl extends PlansRepository {
   final PlansApi? plansApi;
+  final PlacesApi? placesApi;
   final TokenStorage? tokenStorage;
 
-  PlanRepositoryImpl({this.plansApi, this.tokenStorage});
-
-  // final model =
-  //     GenerativeModel(model: 'gemini-pro', apiKey: AppConts.geminiApiKey);
-
-  // ContextStorage contextStorage = const ContextStorage();
+  PlanRepositoryImpl(
+      {required this.placesApi, this.plansApi, this.tokenStorage});
 
   @override
   Future<bool> checkPermission() async {
@@ -34,6 +33,7 @@ class PlanRepositoryImpl extends PlansRepository {
     return Geolocator.getCurrentPosition().then((value) {
       return AppLatLong(lat: value.latitude, long: value.longitude);
     }).catchError((err) => print(err));
+    // return AppLatLong(lat: 55.755864, long: 37.617698);
   }
 
   @override
@@ -50,13 +50,6 @@ class PlanRepositoryImpl extends PlansRepository {
     if (plansApi == null) return '';
     final result =
         await plansApi!.sendGPTMessage(prompt: prompt, context: context);
-    // final content = [
-    // Content.text('${contextStorage.context} Question: $prompt')
-    // ];
-
-    // final response = await model.generateContent(content);
-    // await model.generateContent(content);
-    // return response.text ?? 'No Info';
     return result;
   }
 
@@ -65,5 +58,16 @@ class PlanRepositoryImpl extends PlansRepository {
     final result = await plansApi!.getMenuContext(placeId: placeId);
 
     return result!;
+  }
+
+  @override
+  Future<YandexPlacesModel?> getYandexPlaces(
+      {required String prompt,
+      int maxQuantity = 15,
+      String type = 'biz',
+      required String ll}) async {
+    final result = await placesApi!.getPlaces(
+        prompt: prompt, maxQuantity: maxQuantity, type: type, ll: ll);
+    return result;
   }
 }

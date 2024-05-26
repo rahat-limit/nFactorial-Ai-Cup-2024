@@ -33,10 +33,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.navbarColors,
+        backgroundColor: AppColors.scaffoldColors,
         body: SafeArea(
           child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
+              padding: const EdgeInsets.only(top: 15, left: 30, right: 30),
               child: SingleChildScrollView(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -27,10 +27,33 @@ abstract class AppColors {
   static Color secondary = const Color(0xff757474);
   static Color bottomModal = const Color(0xFF101010);
   static Color navbarColors = const Color(0xFF212121);
+  static Color scaffoldColors = const Color(0xFF191919);
   static Color navbarMainButton = const Color(0xFF4F161A);
-  static Color bottomPanel = const Color(0xFF101010);
+  static Color bottomPanel = const Color(0xFF191919);
   static Color secondaryTextColor = const Color(0xFF1b1b1b);
   static Color optionColor = const Color.fromARGB(255, 53, 49, 49);
   static Color errorBorderColor = const Color(0xFF9B1927);
   static Color errorBackgroundColor = const Color(0xFFAA676E);
+
+  // Plan Cards
+  static Color accommodationCardColors = const Color(0xffdcac62);
+  static Color accommodationCardSecondaryColors = const Color(0xFF64461C);
+  static Color accommodationTextColor = const Color(0XFF4e3215);
+// breakfast
+  static Color breakfastCardColors = const Color(0xffa1aeae);
+  static Color breakfastCardSecondaryColors = const Color(0xff2d3737);
+  static Color breakfastTextColor = const Color(0XFF2d3737);
+// places
+  static Color placesCardColors = const Color(0xffaca1c1);
+  static Color placesSecondaryCardColors = const Color(0xff362b4e);
+  static Color placesTextCardColors = const Color(0xff362d4e);
+  // lunch
+  static Color lunchCardColors = const Color(0xffbf8992);
+  static Color lunchSecondaryCardColors = const Color(0xff49191f);
+  static Color lunchTextCardColors = const Color(0xff471a1f);
+
+// dinner
+  static Color dinnerCardColors = const Color(0xff8cc1bc);
+  static Color dinnerSecondaryCardColors = const Color(0xff135753);
+  static Color dinnerTextCardColors = const Color(0xff145753);
 }

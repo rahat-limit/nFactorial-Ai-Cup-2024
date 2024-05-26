@@ -2,11 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:nfactorial_cup/pages/plans/entity/model/menu_item_model.dart';
-// import 'package:retrofit/retrofit.dart';
 
-// part 'plans_api.g.dart';
-
-// @RestApi()
 class PlansApi {
   final Dio dio;
   final Dio scraperApi;

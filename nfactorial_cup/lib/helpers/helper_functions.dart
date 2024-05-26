@@ -6,12 +6,33 @@ import 'package:nfactorial_cup/helpers/app_fonts.dart';
 import 'package:nfactorial_cup/helpers/app_location.dart';
 import 'package:nfactorial_cup/pages/main/presentors/main_map_cubit.dart';
 import 'package:nfactorial_cup/pages/main/presentors/main_map_state.dart';
+import 'package:nfactorial_cup/pages/plans/presentors/plans_cubit.dart';
+import 'package:nfactorial_cup/pages/profile/presentors/profile_cubit.dart';
 
 void changeMainMapLocation(
     BuildContext context, String city, AppLatLong coordinates) {
   CurrentLocation location =
       CurrentLocation(city: city, coordinates: coordinates);
   MainMapCubit.read(context).changeCurrentCity(location);
+  ProfileCubit.read(context).changeCurrentLocation(location.coordinates);
+  // var _location = MainMapCubit.watchState(context).currentCity.coordinates;
+  // String ll = '${_location.long},${_location.lat}';
+
+  // // // Сперва получаю данные
+  // PlansCubit.read(context).getYandexPlaces(prompt: 'гостиница', ll: ll);
+  // PlansCubit.read(context).getYandexPlaces(
+  //     prompt: 'завтрак', placeType: PlaceType.breakfast, ll: ll);
+  // PlansCubit.read(context)
+  //     .getYandexPlaces(prompt: 'обед', placeType: PlaceType.lunch, ll: ll);
+  // PlansCubit.read(context)
+  //     .getYandexPlaces(prompt: 'ужин', placeType: PlaceType.dinner, ll: ll);
+  // var type = ProfileCubit.watchState(context).preferences.vacationTypes;
+  // PlansCubit.read(context).getYandexPlaces(
+  //     prompt: '', placeType: PlaceType.places, vacationType: type, ll: ll);
+  // // После отдаю гпт на
+  // Future.delayed(const Duration(seconds: 4)).then((val) {
+  //   PlansCubit.read(context).generatePlan();
+  // });
   Navigator.pop(context);
 }
 

@@ -19,7 +19,7 @@ class ProfileCubit extends Cubit<ProfileState> {
             email: 'mail@gmail.com',
             nickname: 'Rakhat',
             status: InitProfileStatus(),
-            currentLocation: const AppLatLong(lat: 51.120896, long: 71.485584),
+            currentLocation: const AppLatLong(lat: 51.128201, long: 71.430429),
             preferences: UserPreferences(cuisineTypes: [
               '🚫 🥩 🐟  Vegetarian'
             ], vacationTypes: [
@@ -29,6 +29,10 @@ class ProfileCubit extends Cubit<ProfileState> {
             ])));
 
   final ProfileRepository _repository;
+
+  void changeCurrentLocation(AppLatLong coords) {
+    state.copyWith(currentLocation: coords);
+  }
 
   void getProfile() async {
     try {
